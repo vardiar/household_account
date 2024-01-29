@@ -25,7 +25,7 @@ handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 configuration = Configuration(access_token=os.environ.get("CHANNEL_ACCESS_TOKEN"))
 
 
-@app.route("/callback", methods=['POST'])
+@app.route("/webhook", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
 
@@ -62,6 +62,6 @@ def handle_message(event):
       )
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 10000))
+    port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=False)
 

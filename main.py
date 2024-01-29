@@ -39,7 +39,6 @@ def callback():
 
     return 'OK'
 
-
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
     with ApiClient(configuration) as api_client:
